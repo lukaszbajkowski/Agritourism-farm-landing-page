@@ -1,10 +1,10 @@
 import './App.css';
-import SideNav from "./SideNav";
+import Nav from "./Nav/Nav";
 
 function App() {
   return (
     <div className="App">
-      <SideNav/>
+      <Nav/>
     </div>
   );
 }

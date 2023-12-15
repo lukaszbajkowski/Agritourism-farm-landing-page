@@ -1,15 +1,16 @@
-// Sidebar.js
-import React from 'react';
-import {Box, Drawer, List, ListItem, ListItemText} from '@mui/material';
-import './SideNav.scss';
-import logo from './logo.png';
+import {Box, List, ListItem, ListItemText, Typography} from "@mui/material";
+import logo from "../logo.png";
+import React from "react";
 
-const Sidebar = () => {
+function SideNav () {
     return (
-        <Drawer variant="permanent" anchor="left">
+        <>
             <Box className={`center`}>
                 <List className="drawer">
                     <img src={logo} alt="Logo" className={`logo`}/>
+                    <Typography variant="h6" className={`TypoSideBar`} component="div" sx={{flexGrow: 1}}>
+                        Siedlisko Podgórze
+                    </Typography>
                     <ListItem className="listItem" button>
                         <ListItemText className={`item`} primary="About us"/>
                     </ListItem>
@@ -37,8 +38,8 @@ const Sidebar = () => {
                     </ListItemText>
                 </ListItem>
             </List>
-        </Drawer>
-    );
-};
+        </>
+    )
+}
 
-export default Sidebar;
+export default SideNav;
