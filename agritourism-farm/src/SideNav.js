@@ -30,6 +30,13 @@ const Sidebar = () => {
                     </ListItem>
                 </List>
             </Box>
+            <List className={`footer`}>
+                <ListItem>
+                    <ListItemText className={`footerContent`}>
+                        Copyright © 2023 - Łukasz Bajkowski
+                    </ListItemText>
+                </ListItem>
+            </List>
         </Drawer>
     );
 };
