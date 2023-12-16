@@ -1,0 +1,127 @@
+@media screen and (max-width: 899px) {
+  .about-us {
+    &-container {
+      position: relative;
+    }
+
+    .img-bg {
+      position: relative;
+      overflow: hidden;
+
+      .landing-image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+
+  .text-container {
+    padding-inline: 48px;
+    padding-block: 32px;
+  }
+
+  .text-container-desc {
+    background: linear-gradient(90deg, rgba(21, 93, 39, 1) 0%, rgba(26, 116, 49, 1) 50%, rgba(32, 139, 58, 1) 100%);
+    font-family: 'Poppins', sans-serif !important;
+    text-shadow: 1px 1px #000;
+    margin: 24px;
+    color: #fff;
+    border-radius: 8px;
+    padding-inline: 24px;
+    padding-block: 16px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+  }
+
+  .text-container-desc {
+    font-size: 1rem;
+  }
+
+  .text-container-content h4 {
+    font-size: 1.75rem;
+  }
+
+  .text-box-content {
+    background: linear-gradient(90deg, rgba(21, 93, 39, 1) 0%, rgba(26, 116, 49, 1) 50%, rgba(32, 139, 58, 1) 100%);
+    font-family: 'Poppins', sans-serif !important;
+    text-shadow: 1px 1px #000;
+    margin: 24px;
+    color: #fff;
+    border-radius: 8px;
+    padding-inline: 24px;
+    padding-block: 16px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+
+
+    .icon-position, .about-us-text {
+      text-align: center;
+
+      .icon {
+        margin-inline: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .about-us {
+    &-container {
+      position: relative;
+    }
+
+    .img-bg {
+      position: relative;
+      overflow: hidden;
+
+      .landing-image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .text-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(0%, -50%);
+        text-align: start;
+        color: #fff;
+        text-shadow: 1px 1px #000;
+        padding: 24px;
+        margin-right: 16px;
+        border-radius: 4px;
+
+        .text-container-content {
+          padding: 32px;
+          border-radius: 4px;
+          background: linear-gradient(90deg, rgba(21, 93, 39, 1) 0%, rgba(26, 116, 49, 1) 50%, rgba(32, 139, 58, 1) 100%);
+
+          .icon-position {
+            display: none;
+          }
+
+          .about-us-text {
+            font-size: 1.75rem;
+            text-shadow: 1px 1px #000;
+            font-family: 'Poppins', sans-serif !important;
+            margin-block: 4px;
+          }
+
+          .about-us-description {
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif !important;
+            text-shadow: 1px 1px #000;
+            margin-top: 8px;
+          }
+        }
+
+        .text-container-desc {
+          margin-top: 48px;
+          padding: 24px;
+          border-radius: 4px;
+          background: linear-gradient(90deg, rgba(21, 93, 39, 1) 0%, rgba(26, 116, 49, 1) 50%, rgba(32, 139, 58, 1) 100%);
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,13 @@
 import './App.scss';
-import Nav from "./Nav/Nav";
-import LandingPage from "./LandingPage/LandingPage";
+import Navbar from "./Nav/Nav";
 import React from "react";
-import {Box} from "@mui/material";
+import AboutUs from "./AboutUs/AboutUs";
 
 function App () {
     return (
         <div className={`App`}>
-            <Nav/>
-            <Box className={`AppBox`}>
-                <LandingPage/>
-            </Box>
+            <Navbar/>
+            <AboutUs name={`about-us`}/>
         </div>
     );
 }
