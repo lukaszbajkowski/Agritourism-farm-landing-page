@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Grid, Typography} from '@mui/material';
-import farmImg from '../farm.jpg';
-import farmPeopleImg from '../farmpeople.jpeg';
+import farmImg from '../Img/farm.jpg';
+import farmPeopleImg from '../Img/farmpeople.jpeg';
 import './LandingPage.scss';
 
 function LandingPage () {

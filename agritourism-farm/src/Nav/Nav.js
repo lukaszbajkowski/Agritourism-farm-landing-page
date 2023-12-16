@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {AppBar, Box, Drawer, IconButton, Toolbar, Typography} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import '../Nav/SideNav.scss';
-import logo from '../logo.png';
+import logo from '../Img/logo.png';
 import SideNav from "./SideNav";
 
 function Nav () {

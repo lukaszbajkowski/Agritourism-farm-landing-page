@@ -1,5 +1,5 @@
 import {Box, List, ListItem, ListItemText, Typography} from "@mui/material";
-import logo from "../logo.png";
+import logo from "../Img/logo.png";
 import React from "react";
 
 function SideNav () {
