@@ -6,7 +6,7 @@ import logo from '../logo.png';
 import SideNav from "./SideNav";
 
 function Nav () {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
     const [openDrawer, setOpenDrawer] = useState(false);
 
     const handleDrawerToggle = () => {
@@ -14,7 +14,7 @@ function Nav () {
     };
 
     const handleResize = () => {
-        setIsMobile(window.innerWidth < 900);
+        setIsMobile(window.innerWidth <= 900);
         setOpenDrawer(false);
     };
 
