@@ -1,32 +1,56 @@
-.bg {
-  //background-color: #10451D !important;
-  background: linear-gradient(90deg, rgba(16,69,29,1) 0%, rgba(21,93,39,1) 35%, rgba(21,93,39,1) 65%, rgba(16,69,29,1) 100%);
-  box-shadow: 0 10px 50px 20px rgba(16, 69, 29, 0.2);
-}
+.nav {
+  .img-bg {
+    position: relative;
+    overflow: hidden;
+    background-color: #f4f4d5;
 
-.content {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-block: 8px;
-}
 
-.company-name {
-  flex-grow: 1;
-  font-size: 96px !important;
-  font-family: 'Qwitcher Grypen', cursive !important;
-  background: -webkit-linear-gradient(#6EDE8A, #208B3A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(1px 1px #000);
-}
+    .landing-image {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
 
-.nav-buttons {
-  text-transform: capitalize !important;
-  font-family: 'Poppins', sans-serif !important;
-  text-shadow: 1px 1px #000;
-  font-size: 16px !important;
-  padding-inline: 16px !important;
-  border-radius: 8px !important;
+    .text-container {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      text-align: start;
+      color: #fff;
+      padding: 24px;
+      margin-inline: min(4px, 16px);
+
+      .text-container-content {
+        padding: 32px;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.16);
+        backdrop-filter: blur(2.5px);
+
+        .company-name {
+          flex-grow: 1;
+          font-size: calc(5vw + 5vh + 2vmin) !important;
+          font-family: 'Qwitcher Grypen', cursive !important;
+          background: -webkit-linear-gradient(#c8cd69, #aab46e);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          filter: drop-shadow(2px 2px rgba(0, 0, 0, 1));
+        }
+
+        .buttons-box {
+          text-align: center;
+
+          .nav-buttons {
+            text-transform: capitalize !important;
+            font-family: 'Poppins', sans-serif !important;
+            text-shadow: 1px 1px #000;
+            font-size: 16px !important;
+            padding-inline: 16px !important;
+            border-radius: 8px !important;
+          }
+        }
+      }
+    }
+  }
 }
