@@ -1,0 +1,60 @@
+.offer {
+  width: 100vw;
+  background-color: #f4f4d5;
+  padding-bottom: 16px;
+
+  @media screen and (max-width: 900px) {
+    padding-bottom: 0;
+  }
+}
+
+.mySwiper {
+  margin-inline: 32px !important;
+}
+
+.mySwiper, .swiper-container {
+  background-color: #f4f4d5;
+}
+
+.swiper-container {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offer-img-shadow {
+  border-radius: 16px;
+  height: 80vh;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  margin-block: 64px;
+
+  @media screen and (max-width: 900px) {
+    margin-block: 32px;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f4f4d5 !important;
+}
+
+.grid-icon {
+  padding: 32px
+}
+
+.offer-icon {
+  font-size: 64px !important;
+  color: #3232b1;
+}
+
+.icon-text {
+  font-family: 'Poppins', sans-serif !important;
+  background: -webkit-linear-gradient(#c8cd69, #aab46e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(1px 1px rgba(0, 0, 0, .3));
+
+}

@@ -32,18 +32,6 @@ export default function Content () {
                 porttitor mollis.
             </Typography>
             <Typography variant="body1" className={`about-us-content`}>
-                Quisque pulvinar elit est, eu maximus diam porta ut. Donec nunc ante, suscipit vel
-                lacinia at, vehicula ac arcu. Sed vel laoreet sem. Fusce ex libero, blandit non
-                dignissim vitae, mollis vitae libero. Donec dapibus mi ac libero pellentesque, at
-                tincidunt est semper. Morbi cursus, sapien nec venenatis vehicula, tellus purus
-                dignissim lacus, et tempor nisl ante quis neque. Vestibulum ante ipsum primis in
-                faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque malesuada vitae
-                purus id fringilla. In lobortis semper hendrerit. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas. Mauris rhoncus, lorem sit amet
-                viverra cursus, lacus turpis varius felis, ac rutrum justo ante id nulla. Pellentesque
-                habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            </Typography>
-            <Typography variant="body1" className={`about-us-content`}>
                 Mauris posuere suscipit velit, eget porta enim pretium sit amet. Duis ullamcorper elit
                 sed venenatis volutpat. Nunc venenatis lectus urna, ac tempus diam mattis a. Maecenas
                 vel rutrum dui. Nunc at placerat tellus. Nam viverra, urna quis euismod sodales, nunc
