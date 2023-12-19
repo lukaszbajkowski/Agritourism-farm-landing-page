@@ -4,7 +4,7 @@ import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import DeckIcon from "@mui/icons-material/Deck";
 import React from "react";
-
+import KayakingIcon from '@mui/icons-material/Kayaking';
 export default function Content () {
     return (
         <Grid item xs={12} md={6} className={`img-bg`}>
@@ -16,7 +16,7 @@ export default function Content () {
                         variant="h4"
                         align="center"
                         component="div"
-                        className={`about-us-text`}
+                        className={`offer-text`}
                     >
                         Oferta
                     </Typography>
@@ -72,6 +72,20 @@ export default function Content () {
                                     <Grid item xs={12}>
                                         <Typography variant={"h6"} className={`icon-text`}>
                                             Ogród z grillem
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Box textAlign="center">
+                                <Grid container>
+                                    <Grid item xs={12}>
+                                        <KayakingIcon className={`offer-icon`}/>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Typography variant={"h6"} className={`icon-text`}>
+                                            Spływy kajakowe
                                         </Typography>
                                     </Grid>
                                 </Grid>

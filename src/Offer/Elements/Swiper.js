@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import {itemData} from "../../AboutUs/Elements/itemData";
 import '../Offer.scss';
+import {Box} from "@mui/material";
 
 export default function ImgSwiper () {
     return (
@@ -27,12 +28,14 @@ export default function ImgSwiper () {
 
             {itemData.map((item) => (
                 <SwiperSlide>
+                    <Box className={`swiper-box`}>
                     <img
                         src={item.img}
                         alt={item.title}
                         loading="lazy"
                         className={`offer-img-shadow`}
                     />
+                        </Box>
                 </SwiperSlide>
             ))}
         </Swiper>
