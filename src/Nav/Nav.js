@@ -2,7 +2,7 @@ import React from 'react';
 import {Box, Grid} from '@mui/material';
 import farmImg from '../Img/farm.jpg';
 import '../AboutUs/AboutUs.scss';
-import '../Nav/Nav.scss';
+import './Nav.scss';
 import Buttons from "./Elements/Buttons";
 import Logo from "./Elements/Logo";
 

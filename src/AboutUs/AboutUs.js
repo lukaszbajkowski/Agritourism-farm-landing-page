@@ -1,7 +1,6 @@
 import React from 'react';
-import {Box, Grid, ImageList, ImageListItem, Typography} from '@mui/material';
-import '../AboutUs/AboutUs.scss';
-import {srcset} from "./Elements/srcset";
+import {Box, Grid} from '@mui/material';
+import './AboutUs.scss';
 import Content from "./Elements/Content";
 import ImageGrid from "./Elements/ImageList";
 
