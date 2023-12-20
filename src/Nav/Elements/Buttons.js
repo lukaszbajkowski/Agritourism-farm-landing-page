@@ -39,12 +39,20 @@ export default function Buttons () {
             >
                 Cennik
             </Button>
-            <Button
-                color="inherit"
-                className={`nav-buttons`}
+            <Link
+                activeClass="active"
+                to="gallery"
+                spy={true}
+                smooth={true}
+                duration={500}
             >
-                Galeria
-            </Button>
+                <Button
+                    color="inherit"
+                    className={`nav-buttons`}
+                >
+                    Galeria
+                </Button>
+            </Link>
             <Button
                 color="inherit"
                 className={`nav-buttons`}

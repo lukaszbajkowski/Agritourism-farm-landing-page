@@ -3,6 +3,7 @@ import Navbar from "./Nav/Nav";
 import React from "react";
 import AboutUs from "./AboutUs/AboutUs";
 import Offer from "./Offer/Offer";
+import Gallery from "./Gallery/Gallery";
 
 function App () {
     return (
@@ -10,6 +11,7 @@ function App () {
             <Navbar/>
             <AboutUs name={`about-us`}/>
             <Offer name={`offer`}/>
+            <Gallery name={`gallery`}/>
         </div>
     );
 }
