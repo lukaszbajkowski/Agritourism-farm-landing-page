@@ -9,7 +9,7 @@ const GalleryImages = ({itemData, handleOpenModal}) => {
             {itemData.map((item) => (
                 <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
                     <img
-                        {...srcset(item.img, 121, item.rows, item.cols)}
+                        {...srcset(item.img, 720, item.rows, item.cols)}
                         alt={item.title}
                         loading="lazy"
                         className={`img-shadow img-open-modal`}

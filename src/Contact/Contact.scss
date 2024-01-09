@@ -1,0 +1,49 @@
+.contact {
+  background-color: #f4f4d5;
+}
+
+.contact-text {
+  padding-top: 64px;
+  padding-bottom: 96px;
+  font-size: 96px !important;
+  font-family: 'Qwitcher Grypen', cursive !important;
+  background: -webkit-linear-gradient(#c8cd69, #aab46e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px rgba(0, 0, 0, 1));
+}
+
+.address-text {
+  padding-top: 24px;
+  padding-inline: 64px;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.address-text-value {
+  padding-inline: 64px;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.contact-data-person {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.contact-data-position {
+  padding-left: 32px;
+  padding-top: 24px;
+}
+
+.content {
+  font-weight: 300 !important;
+  font-family: 'Poppins', sans-serif !important;
+
+}
+
+.contact-form-text {
+  padding-top: 56px;
+  padding-bottom: 32px;
+  padding-inline: 64px;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+}
