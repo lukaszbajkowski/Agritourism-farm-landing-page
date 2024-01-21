@@ -1,7 +1,7 @@
-// AIzaSyDMRaacEohf5Oahd362IAeOaYUeG4AukBA
-
 import React, {useEffect, useState} from "react";
 import {DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, Marker,} from "@react-google-maps/api";
+
+const GOOGLE_MAPS_API_KEY = "AIzaSyDMRaacEohf5Oahd362IAeOaYUeG4AukBA";
 
 const Map = () => {
     const [userLocation, setUserLocation] = useState(null);
@@ -9,7 +9,7 @@ const Map = () => {
     const [directions, setDirections] = useState(null);
     const [hasDirections, setHasDirections] = useState(false);
 
-    useEffect(() => {
+    const getUserLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -23,19 +23,24 @@ const Map = () => {
         } else {
             console.error("Twoja przeglądarka nie obsługuje geolokalizacji.");
         }
+    };
 
-        // Pobieranie długości i szerokości dla adresu Pityny 5, 14-310 Pityny
-        fetch(
-            `https://maps.googleapis.com/maps/api/geocode/json?address=Pityny+5,14-310+Pityny&key=AIzaSyDMRaacEohf5Oahd362IAeOaYUeG4AukBA`
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                const location = data.results[0].geometry.location;
-                setDestination({lat: location.lat, lng: location.lng});
-            })
-            .catch((error) => {
-                console.error("Błąd pobierania lokalizacji celu:", error);
-            });
+    const getDestination = async () => {
+        try {
+            const response = await fetch(
+                `https://maps.googleapis.com/maps/api/geocode/json?address=Pityny+5,14-310+Pityny&key=${GOOGLE_MAPS_API_KEY}`
+            );
+            const data = await response.json();
+            const location = data.results[0].geometry.location;
+            setDestination({lat: location.lat, lng: location.lng});
+        } catch (error) {
+            console.error("Błąd pobierania lokalizacji celu:", error);
+        }
+    };
+
+    useEffect(() => {
+        getUserLocation();
+        getDestination();
     }, []);
 
     const directionsOptions = {
@@ -54,7 +59,7 @@ const Map = () => {
     };
 
     const calculateCenter = () => {
-        if (directions) {
+        if (directions && window.google) {
             const bounds = new window.google.maps.LatLngBounds();
             directions.routes[0].legs[0].steps.forEach((step) => {
                 bounds.extend(step.start_location);
@@ -66,7 +71,7 @@ const Map = () => {
     };
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyDMRaacEohf5Oahd362IAeOaYUeG4AukBA">
+        <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
             <GoogleMap
                 mapContainerStyle={{minHeight: "50vh"}}
                 center={calculateCenter()}
