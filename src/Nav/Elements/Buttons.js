@@ -53,12 +53,21 @@ export default function Buttons () {
                     Galeria
                 </Button>
             </Link>
-            <Button
-                color="inherit"
-                className={`nav-buttons`}
+            <Link
+                activeClass="active"
+                to="contact"
+                spy={true}
+                smooth={true}
+                duration={500}
             >
-                Kontakt
-            </Button>
+                <Button
+                    color="inherit"
+                    className={`nav-buttons`}
+                >
+                    Kontakt
+                </Button>
+            </Link>
+
         </Box>
     )
 }
