@@ -1,0 +1,91 @@
+.divider {
+  background-color: #f4f4d5;
+  color: black;
+  height: 0;
+  border-top: 1px;
+  border-bottom: 0;
+}
+
+.contact {
+  padding-top: 32px;
+  background-color: #f4f4d5;
+
+  .company-name {
+    flex-grow: 1;
+    font-size: calc(3vw + 3vh + 1vmin) !important;
+    font-family: 'Qwitcher Grypen', cursive !important;
+    background: -webkit-linear-gradient(#c8cd69, #aab46e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px rgba(0, 0, 0, 1));
+    padding-left: 64px;
+    padding-block: 16px;
+
+    @media screen and (max-width: 900px) {
+      font-size: calc(4vw + 4vh + 1vmin) !important;
+      padding-top: 0;
+    }
+  }
+
+  .address {
+    padding-left: 64px;
+    padding-block: 2px;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    font-family: 'Poppins', sans-serif !important;
+
+    @media screen and (max-width: 900px) {
+      padding-block: 0;
+    }
+  }
+
+
+  .phone-number, .email {
+    color: black !important;
+    font-family: 'Poppins', sans-serif !important;
+    padding-left: 64px;
+    padding-block: 2px;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    font-weight: 400 !important;
+
+    @media screen and (max-width: 900px) {
+      padding-block: 0;
+    }
+  }
+
+  .phone-number > a, .email > a {
+    color: black !important;
+    font-family: 'Poppins', sans-serif !important;
+    padding-block: 2px;
+    text-shadow: 0.5px 0.5px #000;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+  }
+
+  .phone-number-box, .email-box {
+    margin-top: 16px;
+  }
+
+  .contact-map {
+    padding-left: 8px;
+    padding-right: 32px;
+    padding-block: 16px;
+
+    * {
+      border-radius: 8px !important;
+    }
+
+    button, ul, li, img, div > div {
+      border-radius: 0 !important;
+    }
+
+    @media screen and (max-width: 900px) {
+      padding-inline: 48px;
+      padding-block: 32px;
+    }
+  }
+}

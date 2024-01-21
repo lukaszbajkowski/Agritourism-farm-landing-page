@@ -4,6 +4,7 @@ import React from "react";
 import AboutUs from "./AboutUs/AboutUs";
 import Offer from "./Offer/Offer";
 import Gallery from "./Gallery/Gallery";
+import Contact from "./Contact/Contact";
 
 function App () {
     return (
@@ -12,6 +13,7 @@ function App () {
             <AboutUs name={`about-us`}/>
             <Offer name={`offer`}/>
             <Gallery name={`gallery`}/>
+            <Contact name={`contact`}/>
         </div>
     );
 }
