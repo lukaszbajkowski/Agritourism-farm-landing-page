@@ -9,6 +9,10 @@ const Map = () => {
     const [directions, setDirections] = useState(null);
     const [hasDirections, setHasDirections] = useState(false);
 
+    const isMobileDevice = () => {
+        return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    };
+
     const getUserLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -59,6 +63,10 @@ const Map = () => {
     };
 
     const calculateCenter = () => {
+        if (isMobileDevice()) {
+            return userLocation || destination;
+        }
+
         if (directions && window.google) {
             const bounds = new window.google.maps.LatLngBounds();
             directions.routes[0].legs[0].steps.forEach((step) => {
@@ -67,7 +75,12 @@ const Map = () => {
             });
             return bounds.getCenter().toJSON();
         }
+
         return userLocation || destination;
+    };
+
+    const calculateZoom = () => {
+        return isMobileDevice() ? 13 : 10;
     };
 
     return (
@@ -75,11 +88,11 @@ const Map = () => {
             <GoogleMap
                 mapContainerStyle={{minHeight: "50vh"}}
                 center={calculateCenter()}
-                zoom={10}
+                zoom={calculateZoom()}
             >
                 {destination && <Marker position={destination}/>}
 
-                {userLocation && !hasDirections && (
+                {!isMobileDevice() && userLocation && !hasDirections && (
                     <DirectionsService
                         options={directionsOptions}
                         callback={onDirectionsChange}
@@ -87,6 +100,8 @@ const Map = () => {
                 )}
 
                 {directions && <DirectionsRenderer directions={directions}/>}
+
+                {isMobileDevice() && userLocation && <Marker position={userLocation}/>}
             </GoogleMap>
         </LoadScript>
     );
