@@ -6,6 +6,7 @@ import Offer from "./Offer/Offer";
 import Gallery from "./Gallery/Gallery";
 import Contact from "./Contact/Contact";
 import CopyrightSection from "./Copyright/Copyright";
+import Pricing from "./Pricing/Pricing";
 
 function App () {
     return (
@@ -13,6 +14,7 @@ function App () {
             <Navbar/>
             <AboutUs name={`about-us`}/>
             <Offer name={`offer`}/>
+            <Pricing name={`pricing`}/>
             <Gallery name={`gallery`}/>
             <Contact name={`contact`}/>
             <CopyrightSection/>

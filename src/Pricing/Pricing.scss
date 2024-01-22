@@ -1,0 +1,42 @@
+body {
+      background-color: #f4f4d5;
+}
+
+.before-switch, .after-switch {
+  font-family: 'Poppins', sans-serif !important;
+  background: -webkit-linear-gradient(#c8cd69, #aab46e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(1px 1px rgba(0, 0, 0, .3));
+}
+
+.before-switch {
+  padding-right: 16px;
+}
+
+.after-switch {
+  padding-left: 16px;
+}
+
+.MuiSwitch-switchBase .MuiSwitch-thumb {
+  color: #c8cd69;
+}
+
+.MuiSwitch-switchBase + .MuiSwitch-track {
+  background-color: #c8cd69;
+}
+
+.MuiSwitch-switchBase .MuiTouchRipple-root {
+  color: #c8cd69;
+}
+
+.MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
+  color: #aab46e;
+}
+.MuiSwitch-switchBase.Mui-checked .MuiTouchRipple-root {
+  color: #aab46e;
+}
+
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #aab46e !important;
+}
