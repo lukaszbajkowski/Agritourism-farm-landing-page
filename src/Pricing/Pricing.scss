@@ -1,21 +1,48 @@
 body {
-      background-color: #f4f4d5;
+  background-color: #f4f4d5;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-top: 20px !important;
+}
+
+.switch-container {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 16px !important;
+}
+
+.text-container {
+  margin-top: 24px !important;
 }
 
 .before-switch, .after-switch {
+  font-family: 'Poppins', sans-serif !important;
+  background: -webkit-linear-gradient(rgba(200, 205, 105, 0.3), rgba(170, 180, 110, 0.3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(1px 1px rgba(0, 0, 0, .3));
+  transition: .3s;
+}
+
+.before-switch, .before-switch-active {
+  padding-right: 16px;
+}
+
+.after-switch, .after-switch-active {
+  padding-left: 16px;
+}
+
+.before-switch-active, .after-switch-active {
   font-family: 'Poppins', sans-serif !important;
   background: -webkit-linear-gradient(#c8cd69, #aab46e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(1px 1px rgba(0, 0, 0, .3));
-}
-
-.before-switch {
-  padding-right: 16px;
-}
-
-.after-switch {
-  padding-left: 16px;
+  transition: .3s;
 }
 
 .MuiSwitch-switchBase .MuiSwitch-thumb {
@@ -31,12 +58,45 @@ body {
 }
 
 .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
-  color: #aab46e;
+  color: #c8cd69;
 }
+
 .MuiSwitch-switchBase.Mui-checked .MuiTouchRipple-root {
-  color: #aab46e;
+  color: #c8cd69;
 }
 
 .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: #aab46e !important;
+  background-color: #c8cd69 !important;
+}
+
+.box-pricing {
+  padding-inline: 0;
+  padding-block: 32px;
+  border-radius: 16px;
+  margin-bottom: 64px;
+  border: 1px solid #c8cd69;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.16);
+
+  @media screen and (max-width: 900px) {
+    margin-inline: 32px;
+  }
+}
+
+.box-grid {
+  width: fit-content;
+}
+
+.box-grid-item {
+  text-align: center;
+}
+
+.pricing-text {
+  font-family: 'Poppins', sans-serif !important;
+  color: black;
+  padding-bottom: 8px;
+}
+
+.info-text {
+  text-align: center;
+  margin-inline: 32px;
 }

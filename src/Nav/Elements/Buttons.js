@@ -33,12 +33,20 @@ export default function Buttons () {
                     Oferta
                 </Button>
             </Link>
-            <Button
-                color="inherit"
-                className={`nav-buttons`}
+            <Link
+                activeClass="active"
+                to="pricing"
+                spy={true}
+                smooth={true}
+                duration={500}
             >
-                Cennik
-            </Button>
+                <Button
+                    color="inherit"
+                    className={`nav-buttons`}
+                >
+                    Cennik
+                </Button>
+            </Link>
             <Link
                 activeClass="active"
                 to="gallery"
