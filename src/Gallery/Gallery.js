@@ -32,7 +32,7 @@ function Gallery () {
     return (
         <Box className={`nav gallery`}>
             <Grid container position="relative">
-                <Grid item xs={6} className={`gallery`}>
+                <Grid item xs={12} className={`gallery`}>
                     <Typography
                         variant="h4"
                         align="center"
@@ -41,8 +41,6 @@ function Gallery () {
                     >
                         Galeria
                     </Typography>
-                </Grid>
-                <Grid item xs={6}>
                 </Grid>
                 <Grid item xs={12} className={`img-bg`}>
                     <GalleryImages itemData={itemData} handleOpenModal={handleOpenModal}/>

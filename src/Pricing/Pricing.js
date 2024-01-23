@@ -28,7 +28,7 @@ const Pricing = () => {
                 handleChange={handleChange}
             />
             <Grid container spacing={2} className={`text-container`}>
-                <Grid item xs={12}>
+                <Grid item xs={12} className={`text-grid`}>
                     <Box className={`container`}>
                         <PricingBox isChecked={isChecked}/>
                         <div className={`info-text`}>
