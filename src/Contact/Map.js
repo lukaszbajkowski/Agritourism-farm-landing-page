@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, Marker,} from "@react-google-maps/api";
+import React, { useEffect, useState } from "react";
+import { DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyDMRaacEohf5Oahd362IAeOaYUeG4AukBA";
 
@@ -8,24 +8,21 @@ const Map = () => {
     const [destination, setDestination] = useState(null);
     const [directions, setDirections] = useState(null);
     const [hasDirections, setHasDirections] = useState(false);
-
-    const isMobileDevice = () => {
-        return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    };
+    const [isMobile, setIsMobile] = useState(false); // Dodane stanisieMobile
 
     const getUserLocation = () => {
-        if (navigator.geolocation) {
+        if (navigator.geolocation && !isMobile) { // Dodane sprawdzenie, czy to nie jest urządzenie mobilne
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    const {latitude, longitude} = position.coords;
-                    setUserLocation({lat: latitude, lng: longitude});
+                    const { latitude, longitude } = position.coords;
+                    setUserLocation({ lat: latitude, lng: longitude });
                 },
                 (error) => {
                     console.error("Błąd pobierania lokalizacji:", error.message);
                 }
             );
         } else {
-            console.error("Twoja przeglądarka nie obsługuje geolokalizacji.");
+            console.error("Twoja przeglądarka nie obsługuje geolokalizacji lub to urządzenie mobilne.");
         }
     };
 
@@ -36,13 +33,16 @@ const Map = () => {
             );
             const data = await response.json();
             const location = data.results[0].geometry.location;
-            setDestination({lat: location.lat, lng: location.lng});
+            setDestination({ lat: location.lat, lng: location.lng });
         } catch (error) {
             console.error("Błąd pobierania lokalizacji celu:", error);
         }
     };
 
     useEffect(() => {
+        const mobileCheck = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        setIsMobile(mobileCheck);
+
         getUserLocation();
         getDestination();
     }, []);
@@ -63,8 +63,8 @@ const Map = () => {
     };
 
     const calculateCenter = () => {
-        if (isMobileDevice()) {
-            return userLocation || destination;
+        if (isMobile) {
+            return destination;
         }
 
         if (directions && window.google) {
@@ -80,28 +80,21 @@ const Map = () => {
     };
 
     const calculateZoom = () => {
-        return isMobileDevice() ? 13 : 10;
+        return isMobile ? 13 : 13;
     };
 
     return (
         <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
-            <GoogleMap
-                mapContainerStyle={{minHeight: "50vh"}}
-                center={calculateCenter()}
-                zoom={calculateZoom()}
-            >
-                {destination && <Marker position={destination}/>}
+            <GoogleMap mapContainerStyle={{ minHeight: "50vh" }} center={calculateCenter()} zoom={calculateZoom()}>
+                {destination && <Marker position={destination} />}
 
-                {!isMobileDevice() && userLocation && !hasDirections && (
-                    <DirectionsService
-                        options={directionsOptions}
-                        callback={onDirectionsChange}
-                    />
+                {!isMobile && userLocation && !hasDirections && (
+                    <DirectionsService options={directionsOptions} callback={onDirectionsChange} />
                 )}
 
-                {directions && <DirectionsRenderer directions={directions}/>}
+                {directions && <DirectionsRenderer directions={directions} />}
 
-                {isMobileDevice() && userLocation && <Marker position={userLocation}/>}
+                {isMobile && destination && <Marker position={destination} />}
             </GoogleMap>
         </LoadScript>
     );
