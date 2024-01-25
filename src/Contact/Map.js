@@ -1,50 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import React, {useEffect, useState} from "react";
+import {DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, Marker} from "@react-google-maps/api";
+import {fetchDestination, getUserLocation} from "./API";
 
-const GOOGLE_MAPS_API_KEY = "AIzaSyDMRaacEohf5Oahd362IAeOaYUeG4AukBA";
+const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const GOOGLE_MAPS_ADDRESS = process.env.REACT_APP_GOOGLE_MAPS_ADDRESS;
 
 const Map = () => {
-    const [userLocation, setUserLocation] = useState(null);
-    const [destination, setDestination] = useState(null);
-    const [directions, setDirections] = useState(null);
-    const [hasDirections, setHasDirections] = useState(false);
-    const [isMobile, setIsMobile] = useState(false); // Dodane stanisieMobile
+    const [mapState, setMapState] = useState({
+        userLocation: null,
+        destination: null,
+        directions: null,
+        hasDirections: false,
+        isMobile: false,
+    });
 
-    const getUserLocation = () => {
-        if (navigator.geolocation && !isMobile) { // Dodane sprawdzenie, czy to nie jest urządzenie mobilne
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const { latitude, longitude } = position.coords;
-                    setUserLocation({ lat: latitude, lng: longitude });
-                },
-                (error) => {
-                    console.error("Błąd pobierania lokalizacji:", error.message);
-                }
-            );
-        } else {
-            console.error("Twoja przeglądarka nie obsługuje geolokalizacji lub to urządzenie mobilne.");
-        }
-    };
-
-    const getDestination = async () => {
-        try {
-            const response = await fetch(
-                `https://maps.googleapis.com/maps/api/geocode/json?address=Pityny+5,14-310+Pityny&key=${GOOGLE_MAPS_API_KEY}`
-            );
-            const data = await response.json();
-            const location = data.results[0].geometry.location;
-            setDestination({ lat: location.lat, lng: location.lng });
-        } catch (error) {
-            console.error("Błąd pobierania lokalizacji celu:", error);
-        }
-    };
+    const {userLocation, destination, directions, hasDirections, isMobile} = mapState;
 
     useEffect(() => {
         const mobileCheck = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        setIsMobile(mobileCheck);
+        setMapState((prevState) => ({...prevState, isMobile: mobileCheck}));
 
-        getUserLocation();
-        getDestination();
+        getUserLocation(setMapState);
+        fetchDestination(GOOGLE_MAPS_ADDRESS, GOOGLE_MAPS_API_KEY, setMapState);
     }, []);
 
     const directionsOptions = {
@@ -55,8 +32,7 @@ const Map = () => {
 
     const onDirectionsChange = (result, status) => {
         if (status === "OK") {
-            setDirections(result);
-            setHasDirections(true);
+            setMapState((prevState) => ({...prevState, directions: result, hasDirections: true}));
         } else {
             console.error("Błąd uzyskiwania trasy:", status);
         }
@@ -67,16 +43,17 @@ const Map = () => {
             return destination;
         }
 
-        if (directions && window.google) {
-            const bounds = new window.google.maps.LatLngBounds();
-            directions.routes[0].legs[0].steps.forEach((step) => {
-                bounds.extend(step.start_location);
-                bounds.extend(step.end_location);
-            });
-            return bounds.getCenter().toJSON();
+        if (!directions || !window.google) {
+            return userLocation || destination;
         }
 
-        return userLocation || destination;
+        const bounds = new window.google.maps.LatLngBounds();
+        directions.routes[0].legs[0].steps.forEach((step) => {
+            bounds.extend(step.start_location);
+            bounds.extend(step.end_location);
+        });
+
+        return bounds.getCenter().toJSON();
     };
 
     const calculateZoom = () => {
